@@ -149,7 +149,7 @@ namespace JsCPPDBC {
 		T* operator->() const { return (T*)m_ptr; }
 		T& operator*() const { return *(T*)m_ptr; }
 		//explicit T* operator() { return m_ptr; }
-		T* getPtr() { return m_ptr; }
+		T* getPtr() const { return m_ptr; }
 
 		void resetPtr() {
 			delRef();
