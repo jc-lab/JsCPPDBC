@@ -43,6 +43,11 @@ namespace JsCPPDBC {
 		GeneratedValue generatedValue;
 		bool isId;
 		Type type;
+		bool m_insertable;
+		bool m_updatable;
+		std::string m_insertQuery;
+		std::string m_updateQuery;
+
 		void *buffer;
 		size_t size;
 
@@ -52,6 +57,8 @@ namespace JsCPPDBC {
 			this->type = TYPE_BOOL;
 			this->buffer = NULL;
 			this->size = 0;
+			this->m_insertable = true;
+			this->m_updatable = true;
 		}
 
 		EntityColumn(const char *_name, Type _type, void *_buffer, size_t _size) {
@@ -61,6 +68,8 @@ namespace JsCPPDBC {
 			this->type = _type;
 			this->buffer = _buffer;
 			this->size = _size;
+			this->m_insertable = true;
+			this->m_updatable = true;
 		}
 
 		EntityColumn &Id(bool _isId) {
@@ -70,6 +79,26 @@ namespace JsCPPDBC {
 
 		EntityColumn &setGeneratedValue(GeneratedValue _generatedValue) {
 			this->generatedValue = _generatedValue;
+			return *this;
+		}
+
+		EntityColumn &setInsertable(bool insertable) {
+			this->m_insertable = insertable;
+			return *this;
+		}
+
+		EntityColumn &setUpdatable(bool updatable) {
+			this->m_updatable = updatable;
+			return *this;
+		}
+
+		EntityColumn &setInsertQuery(const std::string& query) {
+			this->m_insertQuery = query;
+			return *this;
+		}
+
+		EntityColumn &setUpdateQuery(const std::string& query) {
+			this->m_insertQuery = query;
 			return *this;
 		}
 
