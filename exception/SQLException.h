@@ -21,15 +21,19 @@ namespace JsCPPDBC {
 		class SQLException : public std::exception 
 		{
 		protected:
-			std::string message;
-			int code;
+			std::string m_message;
+			int m_code;
 
 		public:
-			SQLException(const char *_message, int _code) {
-				this->message = _message;
-				this->code = _code;
+			SQLException(const char *_message, int _code) : 
+			exception(_message) {
+				this->m_message = _message;
+				this->m_code = _code;
 			}
 			virtual ~SQLException() { }
+			int code() const {
+				return this->m_code;
+			}
 		};
 	}
 }
