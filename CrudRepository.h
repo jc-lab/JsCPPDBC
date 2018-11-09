@@ -100,7 +100,7 @@ namespace JsCPPDBC {
 			Ptr< EntityList<TEntity> > result(new EntityList<TEntity>());
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:findAll"];
 
-			stat->clear();
+			stat->reset();
 			stat->execute();
 			stat->fetchRows(result.getPtr());
 
@@ -111,7 +111,7 @@ namespace JsCPPDBC {
 			const EntityColumn *idCol = entity->getIdColumn();
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:findById"];
 			
-			stat->clear();
+			stat->reset();
 			stat->addParam(*idCol);
 			stat->execute();
 			return (stat->fetchRow(entity));
@@ -119,14 +119,14 @@ namespace JsCPPDBC {
 
 		void deleteAll() {
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:deleteAll"];
-			stat->clear();
+			stat->reset();
 			stat->execute();
 		}
 
 		void deleteById(TEntity *entity) {
 			EntityColumn *idCol = entity->getIdCol();
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:deleteAll"];
-			stat->clear();
+			stat->reset();
 			stat->addParam(*idCol);
 			stat->execute();
 		}
@@ -134,7 +134,7 @@ namespace JsCPPDBC {
 		void insert(TEntity *entity) {
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:insert"];
 			int64_t rowid;
-			stat->clear();
+			stat->reset();
 			m_driver->addParamToStmtForInsert(stat.getPtr(), entity);
 			stat->execute();
 			rowid = stat->insert_rowid();
@@ -144,7 +144,7 @@ namespace JsCPPDBC {
 		void update(TEntity *entity) {
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:update"];
 			int64_t rowid;
-			stat->clear();
+			stat->reset();
 			m_driver->addParamToStmtForUpdate(stat.getPtr(), entity);
 			stat->execute();
 			rowid = stat->insert_rowid();
@@ -154,7 +154,7 @@ namespace JsCPPDBC {
 		void save(TEntity *entity) {
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:save"];
 			int64_t rowid;
-			stat->clear();
+			stat->reset();
 			m_driver->addParamToStmtForSave(stat.getPtr(), entity);
 			stat->execute();
 			rowid = stat->insert_rowid();

@@ -43,7 +43,7 @@ namespace JsCPPDBC {
 		virtual bool fetchRow(EntityBase *entity) throw(exception::SQLException) = 0;
 		virtual int fetchRows(EntityListBase *entityList) throw(exception::SQLException) = 0;
 		
-		virtual int clear() {
+		virtual int reset() {
 			m_params.clear();
 			return 0;
 		}

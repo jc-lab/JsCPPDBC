@@ -45,8 +45,8 @@ namespace JsCPPDBC {
 		Type type;
 		bool m_insertable;
 		bool m_updatable;
-		std::string m_insertQuery;
-		std::string m_updateQuery;
+		std::string m_defaultInsertQuery;
+		std::string m_defaultUpdateQuery;
 
 		void *buffer;
 		size_t size;
@@ -92,13 +92,13 @@ namespace JsCPPDBC {
 			return *this;
 		}
 
-		EntityColumn &setInsertQuery(const std::string& query) {
-			this->m_insertQuery = query;
+		EntityColumn &setDefaultInsertQuery(const std::string& query) {
+			this->m_defaultInsertQuery = query;
 			return *this;
 		}
 
-		EntityColumn &setUpdateQuery(const std::string& query) {
-			this->m_insertQuery = query;
+		EntityColumn &setDefaultUpdateQuery(const std::string& query) {
+			this->m_defaultUpdateQuery = query;
 			return *this;
 		}
 
