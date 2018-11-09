@@ -151,15 +151,15 @@ namespace JsCPPDBC {
 		//explicit T* operator() { return m_ptr; }
 		T* getPtr() { return m_ptr; }
 
-	private:
-		explicit Ptr(Ptr *ptr) {
-			assert(false);
-		}
-
 		void resetPtr() {
 			delRef();
 			this->m_ptr = NULL;
 			this->m_manager = NULL;
+		}
+
+	private:
+		explicit Ptr(Ptr *ptr) {
+			assert(false);
 		}
 	};
 
