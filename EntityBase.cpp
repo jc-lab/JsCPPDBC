@@ -80,52 +80,42 @@ namespace JsCPPDBC {
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, int8_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_SINT8, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, uint8_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_UINT8, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, int16_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_SINT16, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, uint16_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_UINT16, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, int32_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_SINT32, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, uint32_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_UINT32, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, int64_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_SINT64, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, uint64_t &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_UINT64, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, float &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_FLOAT, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, double &object) {
 		_jsh_columns[name] = EntityColumn(name, EntityColumn::TYPE_DOUBLE, &object, sizeof(object));
-		object = 0;
 		return _jsh_columns[name];
 	}
 	EntityColumn &EntityBase::setColumn(const char *name, std::string &object) {
