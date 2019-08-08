@@ -129,6 +129,7 @@ namespace JsCPPDBC {
 			stat->reset();
 			stat->addParam(*idCol);
 			stat->execute();
+			entity->setPersistState(DETACH);
 		}
 
 		void insert(TEntity *entity) {
@@ -152,6 +153,10 @@ namespace JsCPPDBC {
 		}
 
 		void save(TEntity *entity) {
+			if (entity->getPersistStatus() == ATTACH) {
+				update(entity);
+				return;
+			}
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:save"];
 			int64_t rowid;
 			stat->reset();

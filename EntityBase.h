@@ -20,6 +20,8 @@
 #include <map>
 #include <string>
 
+#include "PersistStatus.h"
+
 #include "EntityColumn.h"
 
 namespace JsCPPDBC {
@@ -31,6 +33,8 @@ namespace JsCPPDBC {
 		std::string _jsh_nil;
 		const EntityColumn *_jsh_idCol;
 
+		PersistStatus _persist_status;
+
 	public:
 		std::map<std::string, EntityColumn> _jsh_columns;
 
@@ -40,6 +44,9 @@ namespace JsCPPDBC {
 		const EntityColumn* getIdColumn();
 
 		void setInsertRowId(int64_t rowid);
+
+		void setPersistStatus(PersistStatus status);
+		PersistStatus getPersistStatus();
 
 		EntityColumn &setColumn(const char *name, bool &object);
 		EntityColumn &setColumn(const char *name, int8_t &object);

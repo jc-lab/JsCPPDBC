@@ -11,6 +11,7 @@
 namespace JsCPPDBC {
 
 	EntityBase::EntityBase(const char *tableName)
+		: _persist_status(DETACH)
 	{
 		_jsh_tblname = tableName;
 		_jsh_idCol = NULL;
@@ -71,6 +72,16 @@ namespace JsCPPDBC {
 			break;
 		}
 		}
+	}
+
+	void EntityBase::setPersistStatus(PersistStatus status)
+	{
+		this->_persist_status = status;
+	}
+
+	PersistStatus EntityBase::getPersistStatus()
+	{
+		return this->_persist_status;
 	}
 
 	EntityColumn &EntityBase::setColumn(const char *name, bool &object) {
