@@ -124,12 +124,12 @@ namespace JsCPPDBC {
 		}
 
 		void deleteById(TEntity *entity) {
-			EntityColumn *idCol = entity->getIdCol();
+			const EntityColumn *idCol = entity->getIdColumn();
 			Ptr< PreparedStatment > stat = m_stats["*CRUDREPOSITOREY:deleteAll"];
 			stat->reset();
 			stat->addParam(*idCol);
 			stat->execute();
-			entity->setPersistState(DETACH);
+			entity->setPersistStatus(DETACH);
 		}
 
 		void insert(TEntity *entity) {
